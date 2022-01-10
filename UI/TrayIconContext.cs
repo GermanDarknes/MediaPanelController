@@ -8,10 +8,10 @@ namespace MediaPanelController.UI
         private NotifyIcon trayIcon;
         private ContextMenu trayContextMenu;
 
-        public TrayIconContext()
+        public TrayIconContext(string trayIconHoverText)
         {
             trayIcon = new NotifyIcon();
-            trayIcon.Text = "Media Panel Controller";
+            trayIcon.Text = trayIconHoverText;
             trayIcon.Icon = Resources.IconData.Radio_White;
 
             trayContextMenu = new ContextMenu();

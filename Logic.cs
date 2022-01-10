@@ -14,13 +14,15 @@ namespace MediaPanelController
         private SerialCommunicator serialCommunicator = null;
         private MediaCommunicator mediaCommunicator = null;
 
+        private const string trayIconHoverTest = "Media Panel Controller";
+
         private const string deviceName = "MediaPanel";
         private const string audioPlayerID = "org.erb.sonixd";
         private const bool audioPlayerFilter = true;
 
         internal Logic()
         {
-            trayContext = new TrayIconContext();
+            trayContext = new TrayIconContext(trayIconHoverTest);
             serialCommunicator = new SerialCommunicator(deviceName);
             mediaCommunicator = new MediaCommunicator(SendMediaPropertyToSerial);
         }
