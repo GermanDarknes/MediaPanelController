@@ -14,7 +14,7 @@ namespace MediaPanelController
         private SerialCommunicator serialCommunicator = null;
         private MediaCommunicator mediaCommunicator = null;
 
-        private const string trayIconHoverTest = "Media Panel Controller";
+        private const string trayIconHoverText = "Media Panel Controller";
 
         private const string deviceName = "MediaPanel";
         private const string audioPlayerID = "org.erb.sonixd";
@@ -22,7 +22,7 @@ namespace MediaPanelController
 
         internal Logic()
         {
-            trayContext = new TrayIconContext(trayIconHoverTest);
+            trayContext = new TrayIconContext(trayIconHoverText);
             serialCommunicator = new SerialCommunicator(deviceName);
             mediaCommunicator = new MediaCommunicator(SendMediaPropertyToSerial);
         }
