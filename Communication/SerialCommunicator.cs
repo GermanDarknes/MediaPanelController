@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.IO.Ports;
-using System.Threading;
 
 namespace MediaPanelController.Communication
 {
