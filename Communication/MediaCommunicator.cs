@@ -7,11 +7,11 @@ namespace MediaPanelController.Communication
     internal class MediaCommunicator
     {
         private MediaManager mediaManager = null;
-        private Action<GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertyCallback;
+        private Action<MediaManager.MediaSession, GlobalSystemMediaTransportControlsSessionMediaProperties> mediaCallback;
 
-        public MediaCommunicator(Action<GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertyCallback)
+        public MediaCommunicator(Action<MediaManager.MediaSession, GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertyCallback)
         {
-            this.mediaPropertyCallback = mediaPropertyCallback;
+            this.mediaCallback = mediaPropertyCallback;
 
             mediaManager = new MediaManager();
 
@@ -22,7 +22,7 @@ namespace MediaPanelController.Communication
 
         private void MediaManagerOnAnyMediaPropertyChanged(MediaManager.MediaSession mediaSession, GlobalSystemMediaTransportControlsSessionMediaProperties mediaProperties)
         {
-            mediaPropertyCallback(mediaProperties);
+            mediaCallback(mediaSession, mediaProperties);
         }
     }
 }
