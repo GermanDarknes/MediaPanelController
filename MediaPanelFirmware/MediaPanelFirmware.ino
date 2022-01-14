@@ -1,7 +1,7 @@
 #define HID_CUSTOM_LAYOUT
 #define LAYOUT_US_ENGLISH
 
-#define buttonCount 3
+#define buttonCount 5
 #define lcdAddress 0x27
 #define lcdCountLetters 16
 #define lcdCountLines 2
@@ -12,9 +12,9 @@
 
 LiquidCrystal_I2C lcd(lcdAddress, lcdCountLetters, lcdCountLines);
 
-int keyPin[buttonCount] = {6, 5, 4};
-int keyCode[buttonCount] = {MEDIA_PREVIOUS, MEDIA_PLAY_PAUSE, MEDIA_NEXT};
-bool keyState[buttonCount] = {false, false, false};
+int keyPin[buttonCount] = {8, 7, 6, 5, 4};
+int keyCode[buttonCount] = {MEDIA_VOLUME_UP, MEDIA_VOLUME_DOWN, MEDIA_PREVIOUS, MEDIA_PLAY_PAUSE, MEDIA_NEXT};
+bool keyState[buttonCount] = {false, false, false, false, false};
 
 int seperatorPosition, seperatorOffset;
 int scrollCounter = 0;
