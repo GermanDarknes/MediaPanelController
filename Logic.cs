@@ -18,8 +18,8 @@ namespace MediaPanelController
         private const string trayIconHoverText = "Media Panel Controller";
 
         private const string deviceName = "MediaPanel";
-        private const string audioPlayerID = "org.erb.sonixd";
-        private const bool audioPlayerFilter = true;
+        private const string mediaPlayerID = "sonixd";
+        private const bool mediaPlayerFilter = true;
 
         private const MediaPlaybackType mediaTypeID = MediaPlaybackType.Music;
         private const bool mediaTypeFilter = true;
@@ -42,7 +42,7 @@ namespace MediaPanelController
                 return;
             }
 
-            if (audioPlayerFilter && !mediaSession.Id.Equals(audioPlayerID))
+            if (mediaPlayerFilter && !mediaSession.Id.ToLower().Contains(mediaPlayerID))
             {
                 return;
             }
