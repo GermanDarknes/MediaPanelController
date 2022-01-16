@@ -4,6 +4,7 @@ using MediaPanelController.Communication;
 using MediaPanelController.UI;
 using MediaPanelController.Utility;
 using WindowsMediaController;
+using Windows.Media;
 
 namespace MediaPanelController
 {
@@ -20,6 +21,9 @@ namespace MediaPanelController
         private const string audioPlayerID = "org.erb.sonixd";
         private const bool audioPlayerFilter = true;
 
+        private const MediaPlaybackType mediaTypeID = MediaPlaybackType.Music;
+        private const bool mediaTypeFilter = true;
+
         internal Logic()
         {
             trayContext = new TrayIconContext(trayIconHoverText);
@@ -33,7 +37,12 @@ namespace MediaPanelController
 
         private void SendMediaPropertyToSerial(MediaManager.MediaSession mediaSession, GlobalSystemMediaTransportControlsSessionMediaProperties mediaProperties)
         {
-            if(audioPlayerFilter && !mediaSession.Id.Equals(audioPlayerID))
+            if (mediaTypeFilter && !mediaProperties.PlaybackType.Equals(mediaTypeID))
+            {
+                return;
+            }
+
+            if (audioPlayerFilter && !mediaSession.Id.Equals(audioPlayerID))
             {
                 return;
             }
